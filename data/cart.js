@@ -32,3 +32,10 @@ export function removeFromCart(productId){
     });
     cart = newCart;
 }
+export function updateQuantity(productId){
+    cart.forEach((item)=>{
+        if(item.productId == productId){
+            item.quantity++;
+        }
+    });
+}
