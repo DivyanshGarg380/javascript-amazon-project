@@ -19,11 +19,11 @@ function saveToStorage() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-function addToCart(productId) {
+function addToCart(productId , quantity = 1) {
   let matchingItem = cart.find(item => item.productId === productId);
 
   if (matchingItem) {
-    matchingItem.quantity++;
+    matchingItem.quantity += quantity;
   } else {
     cart.push({
       productId,
