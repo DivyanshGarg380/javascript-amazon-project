@@ -40,7 +40,7 @@ export function renderOrderSummary(){
                 <span>
                 Quantity: <span class="quantity-label">${item.quantity}</span>
                 </span>
-                <span class="update-quantity-link link-primary js-add-quantity" data-product-id ="${matchingProduct.id}">
+                <span onclick = "window.location.href='amazon.html'" class="update-quantity-link link-primary js-add-quantity" data-product-id ="${matchingProduct.id}">
                 Update
                 </span>
                 <span class="delete-quantity-link link-primary js-delete-link" data-product-id ="${matchingProduct.id}">
