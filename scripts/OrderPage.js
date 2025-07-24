@@ -5,7 +5,6 @@ import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import {deliveryOptions,getDelivery} from '../data/deliveryOptions.js';
 import { cost } from './checkout/paymentSummary.js';
 
-
 function OrderPageHTML() {
   const today = dayjs();
   const todayString = today.format('dddd, MMMM D');
@@ -45,7 +44,7 @@ function OrderPageHTML() {
           <div class="product-name">${matchingProduct.name}</div>
           <div class="product-delivery-date">Arriving on: ${dateString}</div>
           <div class="product-quantity">Quantity: ${item.quantity}</div>
-          <button class="buy-again-button button-primary">
+          <button onclick = "window.location.href='amazon.html'" class="buy-again-button button-primary">
             <img class="buy-again-icon" src="images/icons/buy-again.png">
             <span class="buy-again-message">Buy it again</span>
           </button>
@@ -73,3 +72,12 @@ function generateRandomCode(length) {
   return result;
 }
 
+function cartUpdate(){
+   
+  const cartLink = document.querySelector('.cart-link');
+  const cartQuantity = document.createElement('div');
+  cartQuantity.className = 'cart-quantity';
+  cartQuantity.innerText = getCartQuantity();
+  cartLink.appendChild(cartQuantity);
+}
+cartUpdate();
