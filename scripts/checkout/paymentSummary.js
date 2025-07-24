@@ -43,13 +43,13 @@ export function renderPaymentSummary(){
             <div class="payment-summary-row">
                 <div>Estimated tax (10%):</div>
                 <div class="payment-summary-money">
-                $${totalTax}</div>
+                $${formatCurrency(totalTax)}</div>
             </div>
 
             <div class="payment-summary-row total-row">
                 <div>Order total:</div>
                 <div class="payment-summary-money">
-                $${totalCost}</div>
+                $${formatCurrency(totalCost)}</div>
             </div>
 
             <button class="place-order-button button-primary">
@@ -58,5 +58,5 @@ export function renderPaymentSummary(){
     `;
     document.querySelector('.js-payment-summary')
         .innerHTML = paymentSummaryHTML;
-    
-}   
+
+}

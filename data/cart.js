@@ -45,14 +45,7 @@ export function removeFromCart(productId){
     cart = newCart;
     saveToStorage();
 }
-export function updateQuantity(productId){
-    cart.forEach((item)=>{
-        if(item.productId == productId){
-            item.quantity++;
-        }
-    });
-    saveToStorage();
-}
+
 
 export function updateDeliveryOption(productId, deliveryOptionId){
     let matchingItem;
