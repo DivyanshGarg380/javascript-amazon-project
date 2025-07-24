@@ -4,7 +4,6 @@ import { getDelivery } from '../../data/deliveryOptions.js';
 import { formatCurrency } from '../utils/money.js';
 
 export function renderPaymentSummary(){
-   
    let productPriceCents = 0;  
    let shippingPriceCents = 0; 
     cart.forEach((item)=>{
@@ -52,11 +51,24 @@ export function renderPaymentSummary(){
                 $${formatCurrency(totalCost)}</div>
             </div>
 
-            <button class="place-order-button button-primary">
+            <button onclick = "window.location.href='orders.html'"class="place-order-button button-primary">
                 Place your order
             </button>
     `;
     document.querySelector('.js-payment-summary')
         .innerHTML = paymentSummaryHTML;
-
+}
+export function cost(){
+   let productPriceCents = 0;  
+   let shippingPriceCents = 0; 
+    cart.forEach((item)=>{
+        const product = getProduct(item.productId);
+        productPriceCents += product.priceCents + item.quantity;
+        const deliveryOption = getDelivery(item.deliveryOptionId);
+        shippingPriceCents += deliveryOption.priceCents;
+    });
+    const totalBeforeTax = productPriceCents + shippingPriceCents;
+    const totalTax = totalBeforeTax*0.1;
+    const totalCost = totalBeforeTax + totalTax;
+    return formatCurrency(totalCost);
 }
