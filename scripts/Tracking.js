@@ -36,3 +36,11 @@ const productId = urlParams.get('productId');
 if (productId) {
   tracker(productId);
 }
+
+export function cartQuantityTrackPage(){
+  const cartTextDiv = document.querySelector('.js-cart-track .cart-text');
+  if (cartTextDiv) {
+    cartTextDiv.innerHTML = `<div class="cart-quantity">${getCartQuantity()}</div>`;
+  }
+}
+cartQuantityTrackPage();
