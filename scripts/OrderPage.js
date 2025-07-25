@@ -4,6 +4,7 @@ import {formatCurrency} from "./utils/money.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import {deliveryOptions,getDelivery} from '../data/deliveryOptions.js';
 import { cost } from './checkout/paymentSummary.js';
+import { tracker } from './Tracking.js';
 
 function OrderPageHTML() {
   const today = dayjs();
@@ -50,7 +51,7 @@ function OrderPageHTML() {
           </button>
         </div>
         <div class="product-actions">
-          <a href="tracking.html">
+          <a  href="tracking.html?productId=${productId}">
             <button class="track-package-button button-secondary">Track package</button>
           </a>
         </div>
